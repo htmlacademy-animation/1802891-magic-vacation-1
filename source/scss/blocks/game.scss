@@ -21,6 +21,17 @@
   @media (max-width: $mobile) and (orientation: landscape) {
     padding: 5rem 0 1.5rem;
   }
+
+  &--active {
+    .form__field {
+      transform: scaleX(100%);
+      opacity: 1;
+    }
+
+    .form__button > * {
+      opacity: 1;
+    }
+  }
 }
 
 .game__header {
