@@ -3,10 +3,6 @@ export default () => {
   let menuToggler = header.querySelector(`.js-menu-toggler`);
   let menuLinks = header.querySelectorAll(`.js-menu-link`);
 
-  document.addEventListener(`DOMContentLoaded`, () => {
-    header.classList.add(`page-header--loaded`);
-  });
-
   if (menuToggler) {
     menuToggler.addEventListener(`click`, function () {
       if (header.classList.contains(`page-header--menu-opened`)) {

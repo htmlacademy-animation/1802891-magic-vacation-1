@@ -7,7 +7,6 @@ import chat from "./modules/chat.js";
 import result from "./modules/result.js";
 import form from "./modules/form.js";
 import social from "./modules/social.js";
-import intro from "./modules/intro.js";
 import game from "./modules/game.js";
 import FullPageScroll from "./modules/full-page-scroll";
 
@@ -20,8 +19,11 @@ chat();
 result();
 form();
 social();
-intro();
 game();
 
 const fullPageScroll = new FullPageScroll();
 fullPageScroll.init();
+
+window.addEventListener(`load`, () => {
+  document.querySelector(`body`).classList.add(`load`);
+});
