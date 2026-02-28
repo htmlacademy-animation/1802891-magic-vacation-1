@@ -47,7 +47,7 @@
 
     transform: translate(-50%, -50%) scale(0);
 
-    transition: transform 0.7s ease 0.8s;
+    transition: transform 0.2s cubic-bezier(0.7, 2, 0.8, 1) 0.8s;
   }
 
   svg {

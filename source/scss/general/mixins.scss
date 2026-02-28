@@ -58,3 +58,13 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+@mixin fadeBottom($opacity: 0) {
+  transform: translateY(100%);
+  opacity: $opacity;
+}
+
+@mixin fadeUp {
+  transform: translateY(0%);
+  opacity: 1;
+}

@@ -20,3 +20,33 @@
 @import "blocks/screen.scss";
 @import "blocks/slider.scss";
 @import "blocks/social-block.scss";
+
+body.load {
+  .intro__message {
+    @include fadeUp();
+  }
+
+  .intro__info {
+    @include fadeUp();
+  }
+
+  .page-header__logo {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+
+  .page-header__menu {
+    opacity: 1;
+  }
+
+  .social-block__toggler {
+    opacity: 1;
+    &::before {
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  .screen__footer {
+    transform: translateY(0);
+  }
+}
