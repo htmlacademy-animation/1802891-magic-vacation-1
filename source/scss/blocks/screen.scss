@@ -47,6 +47,22 @@
         opacity: 1;
       }
     }
+
+    &[id="rules"] {
+      .rules__item {
+        &::before {
+          animation-play-state: running;
+        }
+      }
+
+      .rules__itemText {
+        animation-play-state: running;
+      }
+
+      .rules__link {
+        animation-play-state: running;
+      }
+    }
   }
 }
 
