@@ -9,8 +9,13 @@ import form from "./modules/form.js";
 import social from "./modules/social.js";
 import game from "./modules/game.js";
 import FullPageScroll from "./modules/full-page-scroll";
+import intro from "./modules/intro.js";
+import prize from "./modules/prize.js";
+import rules from "./modules/rules.js";
 
 // init modules
+
+intro();
 mobileHeight();
 slider();
 menu();
@@ -20,10 +25,8 @@ result();
 form();
 social();
 game();
+prize();
+rules();
 
 const fullPageScroll = new FullPageScroll();
 fullPageScroll.init();
-
-window.addEventListener(`load`, () => {
-  document.querySelector(`body`).classList.add(`load`);
-});

@@ -1,9 +1,12 @@
 import Swiper from "swiper";
+import { animateText } from "../shared/animate-text/animate-text";
 
 export default () => {
   let storySlider;
   let sliderContainer = document.getElementById(`story`);
   sliderContainer.style.backgroundImage = `url("img/slide1.jpg"), linear-gradient(180deg, rgba(83, 65, 118, 0) 0%, #523E75 16.85%)`;
+  const section = document.querySelector(`.screen--story`);
+  const title = section.querySelector(`.slider__item-title`);
 
   const setSlider = function () {
     if (window.innerWidth / window.innerHeight < 1 || window.innerWidth < 769) {
@@ -18,11 +21,13 @@ export default () => {
         allowTouchMove: false,
         on: {
           slideChange: () => {
+            animateText(title, { isStart: false });
             if (
               storySlider.activeIndex === 0 ||
               storySlider.activeIndex === 1
             ) {
               sliderContainer.style.backgroundImage = `url("img/slide1.jpg"), linear-gradient(180deg, rgba(83, 65, 118, 0) 0%, #523E75 16.85%)`;
+              animateText(title, { isStart: true });
             } else if (
               storySlider.activeIndex === 2 ||
               storySlider.activeIndex === 3
@@ -65,8 +70,10 @@ export default () => {
         },
         on: {
           slideChange: () => {
+            animateText(title, { isStart: false });
             if (storySlider.activeIndex === 0) {
               sliderContainer.style.backgroundImage = `url("img/slide1.jpg")`;
+              animateText(title, { isStart: true });
             } else if (storySlider.activeIndex === 2) {
               sliderContainer.style.backgroundImage = `url("img/slide2.jpg")`;
             } else if (storySlider.activeIndex === 4) {
@@ -93,4 +100,15 @@ export default () => {
   });
 
   setSlider();
+
+  window.addEventListener(`hashchange`, () => {
+    const anchor = window.location.hash.slice(1);
+
+    if (section.id === anchor) {
+      animateText(title, { isStart: true });
+    } else {
+      animateText(title, { isStart: false });
+      storySlider.slideTo(0);
+    }
+  });
 };

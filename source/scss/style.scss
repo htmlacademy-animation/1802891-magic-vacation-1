@@ -20,13 +20,14 @@
 @import "blocks/screen.scss";
 @import "blocks/slider.scss";
 @import "blocks/social-block.scss";
+@import "shared/animate-text.scss";
 
 body.load {
   .intro__message {
     @include fadeUp();
   }
 
-  .intro__info {
+  .intro__label {
     @include fadeUp();
   }
 

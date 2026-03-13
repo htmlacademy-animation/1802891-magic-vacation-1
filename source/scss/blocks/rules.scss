@@ -60,6 +60,12 @@
   font-size: 2.4rem;
   line-height: 1.2;
 
+  @include fadeBottom();
+
+  transition:
+    opacity 0.3s ease 0.2s,
+    transform 0.5s ease 0s;
+
   @media (min-width: $stop-scaling) {
     margin-left: 58px;
     max-width: 960px;
@@ -144,7 +150,7 @@
     font-size: 1.2rem;
   }
 
-  @for $i from 1 through 4 {
+  @for $i from 0 through 4 {
     &:nth-child(#{$i}) {
       .rules__itemText {
         animation-delay: #{$i * 0.3s};
@@ -178,11 +184,9 @@
 
       transform: scale(0);
 
-      animation-name: CountInit;
       animation-duration: 0.7s;
       animation-timing-function: ease-in;
       animation-fill-mode: forwards;
-      animation-play-state: paused;
     }
 
     @media (max-width: $tablet) and (orientation: portrait) {
@@ -206,15 +210,17 @@
 .rules__itemText {
   margin: 0;
 
+  will-change: transform;
+  transform: translateX(20%);
+  opacity: 0;
+
+  animation-duration: 0.75s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+
   @media (max-width: $tablet) and (orientation: portrait) {
     min-height: calc(1.4rem * 2.2);
   }
-
-  animation-name: RulesTextInit;
-  animation-duration: 0.75s;
-  animation-timing-function: ease-out;
-  animation-fill-mode: both;
-  animation-play-state: paused;
 }
 
 .rules__link {
@@ -222,11 +228,14 @@
   bottom: 6rem;
   right: 5.6rem;
 
-  animation-name: RulesButtonInit;
+  font-size: 0;
+  color: transparent;
+
+  opacity: 0;
+
   animation-duration: 1.5s;
   animation-delay: calc(0.35s * 3);
-  animation-fill-mode: both;
-  animation-play-state: paused;
+  animation-fill-mode: forwards;
 
   @media (min-width: $stop-scaling) {
     bottom: 60px;
@@ -251,9 +260,11 @@
 
 @keyframes CountInit {
   50% {
-    color: $c-light;
+    color: transparent;
   }
+
   70% {
+    color: $c-light;
     transform: scale(1.2);
   }
   to {
@@ -263,11 +274,6 @@
 }
 
 @keyframes RulesTextInit {
-  from {
-    transform: translateX(20%);
-    opacity: 0;
-  }
-
   90% {
     opacity: 1;
   }
@@ -279,12 +285,6 @@
 }
 
 @keyframes RulesButtonInit {
-  from {
-    opacity: 0;
-    font-size: 0;
-    color: transparent;
-  }
-
   20% {
     font-size: 24px;
     opacity: 1;
@@ -297,6 +297,7 @@
 
   to {
     color: $c-dark;
+    opacity: 1;
     font-size: 24px;
   }
 }

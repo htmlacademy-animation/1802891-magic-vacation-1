@@ -1,0 +1,35 @@
+.animationText {
+  &.animationText_start {
+    .animationText__char {
+      animation-play-state: running;
+    }
+  }
+
+  .animationText__word {
+    display: inline-flex;
+    overflow: hidden;
+  }
+
+  .animationText__char {
+    display: inline-block;
+
+    will-change: transform;
+    vertical-align: text-bottom;
+
+    animation-name: AnimationChar;
+    animation-duration: var(--animation-char-duration);
+    animation-fill-mode: both;
+    animation-delay: var(--animation-char-delay);
+    animation-play-state: paused;
+  }
+}
+
+@keyframes AnimationChar {
+  from {
+    transform: translateY(130%);
+  }
+
+  to {
+    transform: translateY(0%);
+  }
+}

@@ -59,6 +59,9 @@
   font-size: 2.4rem;
   line-height: 1.2;
 
+  transform: translateY(50%);
+  opacity: 0;
+
   @media (min-width: $stop-scaling) {
     margin-left: 58px;
     margin-bottom: -56px;
