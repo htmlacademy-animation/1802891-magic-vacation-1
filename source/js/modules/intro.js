@@ -20,5 +20,4 @@ export default () => {
   };
 
   window.addEventListener(`load`, initAnimation);
-  window.addEventListener(`hashchange`, initAnimation);
 };

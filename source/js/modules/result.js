@@ -12,6 +12,8 @@ export default () => {
         let targetEl = [].slice.call(results).filter(function (el) {
           return el.getAttribute(`id`) === target;
         });
+
+        targetEl[0].querySelector(`.result`).classList.add(`result--active`);
         targetEl[0].classList.add(`screen--show`);
         targetEl[0].classList.remove(`screen--hidden`);
       });
@@ -23,6 +25,7 @@ export default () => {
         [].slice.call(results).forEach(function (el) {
           el.classList.remove(`screen--show`);
           el.classList.add(`screen--hidden`);
+          el.querySelector(`.result`).classList.remove(`result--active`);
         });
         document.getElementById(`messages`).innerHTML = ``;
         document.getElementById(`message-field`).focus();

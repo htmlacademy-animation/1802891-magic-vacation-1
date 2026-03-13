@@ -37,6 +37,8 @@
     border: 2px solid $c-light;
     border-radius: 3.5rem;
     z-index: -1;
+
+    transition: background-color 0.3s ease;
   }
 
   &:hover {
